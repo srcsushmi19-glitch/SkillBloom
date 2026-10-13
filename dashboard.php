@@ -42,7 +42,9 @@ $student_email = $_SESSION['student_email'];
 
             <a href="dashboard.php">Home</a>
 
-            <a href="#">My Profile</a>
+            <a href="profile.php">My Profile</a>
+            
+            <a href="my_skills.php">My Skills</a>
 
             <a href="#">Find Skills</a>
 

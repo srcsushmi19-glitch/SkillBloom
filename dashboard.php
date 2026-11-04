@@ -1,15 +1,15 @@
+
 <?php
 
 session_start();
 
-// Check if user is logged in
 if (!isset($_SESSION['student_id'])) {
     header("Location: login.php");
     exit;
 }
 
-$student_name = $_SESSION['student_name'];
-$student_email = $_SESSION['student_email'];
+$student_name = $_SESSION['student_name'] ?? '';
+$student_email = $_SESSION['student_email'] ?? '';
 
 ?>
 
@@ -31,7 +31,6 @@ $student_email = $_SESSION['student_email'];
 
 <div class="dashboard-page">
 
-    <!-- Navigation Bar -->
     <nav class="navbar">
 
         <div class="logo">
@@ -43,14 +42,14 @@ $student_email = $_SESSION['student_email'];
             <a href="dashboard.php">Home</a>
 
             <a href="profile.php">My Profile</a>
-            
+
             <a href="my_skills.php">My Skills</a>
 
-            <a href="#">Find Skills</a>
+            <a href="find_skills.php">Find Skills</a>
 
-            <a href="#">Offer a Skill</a>
+            <a href="add_skill.php">Offer a Skill</a>
 
-            <a href="#">Requests</a>
+            <a href="requests.php">Requests</a>
 
             <a href="logout.php">Logout</a>
 
@@ -58,14 +57,12 @@ $student_email = $_SESSION['student_email'];
 
     </nav>
 
-
-    <!-- Dashboard Content -->
     <div class="dashboard-container">
 
         <div class="welcome-box">
 
             <h1>
-                Welcome, <?php echo htmlspecialchars($student_name); ?>!
+                Welcome, <?php echo htmlspecialchars($student_name, ENT_QUOTES, 'UTF-8'); ?>!
             </h1>
 
             <p>
@@ -73,15 +70,12 @@ $student_email = $_SESSION['student_email'];
             </p>
 
             <p class="email">
-                <?php echo htmlspecialchars($student_email); ?>
+                <?php echo htmlspecialchars($student_email, ENT_QUOTES, 'UTF-8'); ?>
             </p>
 
         </div>
 
-
-        <!-- Dashboard Cards -->
         <div class="dashboard-cards">
-
 
             <div class="dashboard-card">
 
@@ -91,57 +85,39 @@ $student_email = $_SESSION['student_email'];
                     View and manage your personal information and skills.
                 </p>
 
-                <a href="#">
-                    View Profile
-                </a>
+                <a href="profile.php">View Profile</a>
 
             </div>
-
 
             <div class="dashboard-card">
 
                 <h2>Find Skills</h2>
 
-                <p>
-                    Find students who can teach you useful skills.
-                </p>
+                <p>Find students who can teach you useful skills.</p>
 
-                <a href="#">
-                    Find Skills
-                </a>
+                <a href="find_skills.php">Find Skills</a>
 
             </div>
-
 
             <div class="dashboard-card">
 
                 <h2>Offer a Skill</h2>
 
-                <p>
-                    Share your skills and help other students.
-                </p>
+                <p>Share your skills and help other students.</p>
 
-                <a href="#">
-                    Offer Skill
-                </a>
+                <a href="add_skill.php">Offer Skill</a>
 
             </div>
-
 
             <div class="dashboard-card">
 
                 <h2>Skill Requests</h2>
 
-                <p>
-                    View and manage your skill exchange requests.
-                </p>
+                <p>View and manage your skill exchange requests.</p>
 
-                <a href="#">
-                    View Requests
-                </a>
+                <a href="requests.php">View Requests</a>
 
             </div>
-
 
         </div>
 

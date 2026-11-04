@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -26,54 +25,131 @@ $student = mysqli_fetch_assoc($result);
 if (!$student) {
     exit("Student profile not found.");
 }
+
+function safe($value) {
+    return htmlspecialchars((string)($value ?? ''), ENT_QUOTES, 'UTF-8');
+}
+
+$initial = strtoupper(substr($student['name'], 0, 1));
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile - Skillora</title>
-    <link rel="stylesheet" href="style.css?v=5">
+
+    <title>My Profile - SkillBloom</title>
+
+    <link rel="stylesheet" href="style.css?v=6">
 </head>
 
 <body>
 
-<div class="login-container">
+<div class="profile-page">
 
-    <h1>My Profile</h1>
+    <div class="profile-container">
 
-    <p><strong>Name:</strong>
-        <?= htmlspecialchars($student['name']) ?>
-    </p>
+    <?php if (isset($_GET['updated']) && $_GET['updated'] == '1'): ?>
 
-    <p><strong>Username:</strong>
-        <?= htmlspecialchars($student['username']) ?>
-    </p>
+    <div class="success-message">
+        Profile updated successfully!
+    </div>
 
-    <p><strong>Age:</strong>
-        <?= htmlspecialchars((string)$student['age']) ?>
-    </p>
+<?php endif; ?>
 
-    <p><strong>Gender:</strong>
-        <?= htmlspecialchars($student['gender']) ?>
-    </p>
+        <div class="profile-header">
 
-    <p><strong>Email:</strong>
-        <?= htmlspecialchars($student['email']) ?>
-    </p>
+            <div class="profile-avatar">
+                <?= safe($initial) ?>
+            </div>
 
-    <p><strong>Phone:</strong>
-        <?= htmlspecialchars($student['phone']) ?>
-    </p>
+            <h1>My Profile</h1>
 
-    <p><strong>About Me:</strong>
-        <?= htmlspecialchars($student['description']) ?>
-    </p>
+            <h2><?= safe($student['name']) ?></h2>
 
-    <p>
-        <a href="dashboard.php">Back to Dashboard</a>
-    </p>
+            <p class="profile-username">
+                @<?= safe($student['username']) ?>
+            </p>
+
+        </div>
+
+        <div class="profile-content">
+
+            <h3>Personal Information</h3>
+
+            <div class="profile-grid">
+
+                <div class="profile-field">
+                    <span class="profile-label">Full Name</span>
+                    <span class="profile-value">
+                        <?= safe($student['name']) ?>
+                    </span>
+                </div>
+
+                <div class="profile-field">
+                    <span class="profile-label">Username</span>
+                    <span class="profile-value">
+                        <?= safe($student['username']) ?>
+                    </span>
+                </div>
+
+                <div class="profile-field">
+                    <span class="profile-label">Age</span>
+                    <span class="profile-value">
+                        <?= safe($student['age']) ?>
+                    </span>
+                </div>
+
+                <div class="profile-field">
+                    <span class="profile-label">Gender</span>
+                    <span class="profile-value">
+                        <?= safe($student['gender']) ?>
+                    </span>
+                </div>
+
+                <div class="profile-field">
+                    <span class="profile-label">Email Address</span>
+                    <span class="profile-value">
+                        <?= safe($student['email']) ?>
+                    </span>
+                </div>
+
+                <div class="profile-field">
+                    <span class="profile-label">Phone Number</span>
+                    <span class="profile-value">
+                        <?= safe($student['phone']) ?>
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="profile-about">
+
+                <h3>About Me</h3>
+
+                <p>
+                    <?= nl2br(safe($student['description'])) ?>
+                </p>
+
+            </div>
+
+            <div class="profile-buttons">
+
+    <a href="edit_profile.php" class="profile-btn">
+        Edit Profile
+    </a>
+
+    <a href="dashboard.php" class="profile-btn">
+        Back to Dashboard
+    </a>
+
+</div>
+
+        </div>
+
+    </div>
 
 </div>
 

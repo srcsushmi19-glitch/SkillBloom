@@ -36,33 +36,42 @@ function safe($value) {
 
     <title>My Skills - SkillBloom</title>
 
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=8">
 </head>
 
 <body>
 
+<?php include "sidebar.php"; ?>
+
 <div class="skills-page">
 
     <div class="skills-container">
-        
-<?php if (isset($_GET['updated']) && $_GET['updated'] == '1'): ?>
-    <div class="success-message">
-        Skill updated successfully!
-    </div>
-<?php endif; ?>
 
-<?php if (isset($_GET['error'])): ?>
-    <div class="error-message">
-        <?php
-        if ($_GET['error'] === 'invalid') {
-            echo "Please enter valid skill information.";
-        } else {
-            echo "Unable to update skill. Please try again.";
-        }
-        ?>
-    </div>
-<?php endif; ?>
+        <?php if (isset($_GET['updated']) && $_GET['updated'] == '1'): ?>
+            <div class="success-message">
+                Skill updated successfully!
+            </div>
+        <?php endif; ?>
 
+        <?php if (isset($_GET['deleted']) && $_GET['deleted'] == '1'): ?>
+            <div class="success-message">
+                Skill deleted successfully!
+            </div>
+        <?php endif; ?>
+
+        <?php if (isset($_GET['error'])): ?>
+            <div class="error-message">
+                <?php
+                if ($_GET['error'] === 'invalid') {
+                    echo "Please enter valid skill information.";
+                } elseif ($_GET['error'] === 'delete') {
+                    echo "Unable to delete skill. Please try again.";
+                } else {
+                    echo "Unable to update skill. Please try again.";
+                }
+                ?>
+            </div>
+        <?php endif; ?>
 
         <div class="skills-header">
 

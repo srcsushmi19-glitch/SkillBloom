@@ -11,6 +11,8 @@ if (!isset($_SESSION['student_id'])) {
 $student_name = $_SESSION['student_name'] ?? '';
 $student_email = $_SESSION['student_email'] ?? '';
 
+require "db.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -31,31 +33,8 @@ $student_email = $_SESSION['student_email'] ?? '';
 
 <div class="dashboard-page">
 
-    <nav class="navbar">
-
-        <div class="logo">
-            SkillBloom
-        </div>
-
-        <div class="nav-links">
-
-            <a href="dashboard.php">Home</a>
-
-            <a href="profile.php">My Profile</a>
-
-            <a href="my_skills.php">My Skills</a>
-
-            <a href="find_skills.php">Find Skills</a>
-
-            <a href="add_skill.php">Offer a Skill</a>
-
-            <a href="requests.php">Requests</a>
-
-            <a href="logout.php">Logout</a>
-
-        </div>
-
-    </nav>
+    <?php include "sidebar.php"; ?>
+       
 
     <div class="dashboard-container">
 

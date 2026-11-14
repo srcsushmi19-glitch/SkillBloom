@@ -50,10 +50,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add Skill - Skillora</title>
-    <link rel="stylesheet" href="style.css?v=5">
+    <title>Add Skill - SkillBloom</title>
+    <link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
+
+<?php include "sidebar.php"; ?>
 
 <div class="login-container">
 

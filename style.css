@@ -1073,3 +1073,344 @@ textarea {
     font-weight: bold;
     font-size: 16px;
 }
+
+
+/* Find Skills Page Design */
+
+.find-skills-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px auto 35px;
+    max-width: 100%;
+}
+
+.find-skills-form input[type="text"] {
+    flex: 1 1 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.find-skills-form select {
+    min-width: 200px;
+    padding: 12px 15px;
+    border: 1px solid #557500;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.find-skills-form button,
+.find-skills-form .profile-btn {
+    min-width: 160px;
+    padding: 13px 22px;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.find-skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.find-skill-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #dce8c8;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.find-skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.find-skill-card h3 {
+    color: #3f6000;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.find-skill-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 8px 0;
+}
+
+@media (max-width: 600px) {
+    .find-skills-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .find-skills-form select,
+    .find-skills-form button,
+    .find-skills-form .profile-btn {
+        width: 100%;
+    }
+
+    .find-skills-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Fix Back to Dashboard Alignment on Find Skills Page */
+
+.skills-page .skills-container {
+    justify-content: flex-start;
+    min-height: auto;
+}
+
+.skills-page .skills-container > .profile-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+}
+
+
+/* Skill Request Form */
+
+.skill-request-form {
+    margin-top: 18px;
+}
+
+.skill-request-form textarea {
+    width: 100%;
+    min-height: 75px;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid #cbd8b8;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    resize: vertical;
+    margin-bottom: 12px;
+/* Accept and Reject Request Buttons */
+
+.request-action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+.request-action-buttons form {
+    margin: 0;
+}
+
+.accept-btn,
+.reject-btn {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.accept-btn {
+    background-color: #4d7c0f;
+    color: white;
+}
+
+.accept-btn:hover {
+    background-color: #365b08;
+}
+
+.reject-btn {
+    background-color: #dc4545;
+    color: white;
+}
+
+.reject-btn:hover {
+    background-color: #b52d2d;
+}
+
+}
+
+.skill-request-form button {
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Navbar Notification Badge */
+
+.nav-notification {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.notification-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 19px;
+    height: 19px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    background-color: #e53935;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 50px;
+    line-height: 1;
+}
+
+
+/* =================================
+ Sidebar Navigation
+================================= */
+
+body {
+    padding-left: 250px;
+    transition: padding-left 0.3s ease;
+}
+
+/* Main Sidebar */
+
+.main-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(180deg, #292044, #211936);
+    color: white;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+    box-shadow: 3px 0 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Sidebar Logo */
+
+.sidebar-logo {
+    padding: 28px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.sidebar-logo h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 25px;
+}
+/* Sidebar Menu */
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 22px 12px;
+}
+
+.sidebar-menu a,
+.sidebar-logout a {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 14px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.sidebar-menu a:hover,
+.sidebar-logout a:hover {
+    background: #6552a5;
+}
+
+/* Sidebar Notification */
+
+.sidebar-notification-link {
+    position: relative;
+}
+
+.sidebar-notification-link .notification-badge {
+    margin-left: auto;
+}
+
+/* Logout */
+
+.sidebar-logout {
+    margin-top: auto;
+    padding: 15px 12px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Toggle Button */
+
+.sidebar-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1101;
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 7px;
+    background: #6552a5;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.sidebar-toggle:hover {
+    background: #8069d0;
+}
+
+/* Collapsed Sidebar */
+
+body.sidebar-collapsed {
+    padding-left: 0;
+}
+
+body.sidebar-collapsed .main-sidebar {
+    transform: translateX(-100%);
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 768px) {
+
+    body {
+        padding-left: 0;
+    }
+
+    .main-sidebar {
+        transform: translateX(0);
+    }
+
+    body.sidebar-collapsed .main-sidebar {
+        transform: translateX(-100%);
+    }
+
+}
+
+/* Profile Page with Sidebar */
+
+.profile-page {
+    margin-left: 0;
+    transition: margin-left 0.3s ease;
+}
+
+body.sidebar-collapsed .profile-page {
+    margin-left: 0;
+}
+
